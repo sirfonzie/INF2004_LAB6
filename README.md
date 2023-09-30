@@ -27,9 +27,9 @@ Verifying and observing optimization techniques in embedded systems programming,
 ##  **Code Optimization Techniques**
 In this section, you will delve into essential code optimization techniques. Firstly, you will learn about commonly used optimization techniques, such as loop unrolling to reduce loop control overhead, minimizing branching to improve code flow, and optimizing algorithms for enhanced efficiency. Secondly, you will be able to apply these optimization principles in practice. You'll take a sample program and implement the identified optimizations to boost its performance. Finally, you'll employ timing functions to measure and record the program's execution time both before and after optimization. This data will allow you to quantitatively assess the effectiveness of the applied optimizations and gain insights into the performance improvements achieved.
 
-1. Loop Unrolling: Loop unrolling is a technique that reduces the overhead of loop control instructions by executing multiple iterations of a loop in a single iteration.
+**Loop Unrolling:** Loop unrolling is a technique that reduces the overhead of loop control instructions by executing multiple iterations of a loop in a single iteration.
 
-**Before Optimization:**
+Before Optimization
 ```c
 int sum = 0;
 for (int i = 0; i < 10; i++) {
@@ -37,7 +37,7 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-**After Loop Unrolling:**
+After Loop Unrolling
 ```c
 int sum = 0;
 for (int i = 0; i < 10; i += 2) {
@@ -45,13 +45,11 @@ for (int i = 0; i < 10; i += 2) {
     sum += i + 1;
 }
 ```
-
 In this example, loop unrolling reduces the number of loop control instructions by processing two iterations at a time, which can lead to improved performance.
 
+**Minimize Branching:** Reduce branching instructions in your code as they can introduce overhead due to potential branch mispredictions.
 
-2. Minimize Branching: Reduce branching instructions in your code as they can introduce overhead due to potential branch mispredictions.
-
-**Before Optimization:**
+Before Optimization:
 ```c
 if (condition) {
     // Code block A
@@ -60,20 +58,18 @@ if (condition) {
 }
 ```
 
-**After Optimization:**
+After Optimization:
 ```c
 // Code block A
 if (!condition) {
     // Code block B
 }
 ```
+In this example, we have reduced the branching overhead by moving the common code block outside the `if` statement.
 
-In this example, we have reduced the branching overhead by moving the common code block outside of the `if` statement.
+**Algorithm Optimization:** Optimize algorithms to reduce time complexity. For instance, replacing a linear search with a binary search for sorted data can significantly improve performance.
 
-
-3. Algorithm Optimization: Optimize algorithms to reduce time complexity. For instance, replacing a linear search with a binary search for sorted data can significantly improve performance.
-
-**Before Optimization:**
+Before Optimization:
 ```c
 int linear_search(int arr[], int n, int target) {
     for (int i = 0; i < n; i++) {
@@ -85,7 +81,7 @@ int linear_search(int arr[], int n, int target) {
 }
 ```
 
-**After Optimization:**
+After Optimization
 ```c
 int binary_search(int arr[], int n, int target) {
     int left = 0, right = n - 1;
@@ -103,9 +99,7 @@ int binary_search(int arr[], int n, int target) {
     return -1;
 }
 ```
-
 In this example, replacing a linear search with a binary search improves the algorithm's time complexity from O(n) to O(log n).
-
 
 **Execution Time Measurement**
 
@@ -117,15 +111,13 @@ After Optimization:
 1. Re-run the program with the optimizations applied.
 2. Measure and record the execution time again using the same timing functions.
 
- **What should you observe: Compare the execution times before and after optimization. If the execution time has significantly reduced, it indicates the effectiveness of your optimizations.**
+**Observation:** Compare the execution times before and after optimization. If the execution time has significantly reduced, it indicates the effectiveness of your optimizations.
 
 
 ## **Memory Optimization Techniques**
-- Explore memory optimization techniques for minimizing variable sizes and efficient data structures.
-- Modify a program to reduce memory usage while preserving functionality.
-- Monitor memory usage using `pico_malloc_stats` or similar functions to assess memory optimization success.
+This section delves into fundamental techniques that involve minimizing variable sizes and using efficient data structures to save memory resources in embedded systems. You will gain practical experience by adapting an existing program to reduce its memory footprint while retaining its core functionality. To quantify the effectiveness of these optimizations, you will employ tools such as `pico_malloc_stats` or equivalent functions to closely monitor and assess the success of your memory optimization efforts.
 
-1. Minimize Variable Sizes: Reduce the size of data types wherever possible to minimize memory usage.
+**Minimize Variable Sizes:** Reduce the size of data types wherever possible to minimize memory usage.
 
 **Before Optimization:**
 ```c
@@ -142,12 +134,9 @@ struct SensorData {
     uint16_t humidity;    // Assuming humidity range can be represented with uint16_t
 };
 ```
-
 In this example, we changed `float` to `uint16_t` if the data range allows it, saving memory.
 
-##### 2. Efficient Data Structures:
-
-Choose data structures that use memory efficiently. For example, use arrays instead of linked lists when memory usage is a concern.
+**Efficient Data Structures:** Choose data structures that use memory efficiently. For example, use arrays instead of linked lists when memory usage is a concern.
 
 **Before Optimization:**
 ```c
@@ -164,44 +153,40 @@ int array[SIZE];
 
 In this example, using an array instead of a linked list for a large dataset saves memory and reduces overhead.
 
-### 2. Memory Usage Monitoring:
+**Memory Usage Monitoring:**
 
-#### Before Optimization:
+Before Optimization:
 1. Use functions like `pico_malloc_stats` to monitor memory usage before optimization.
 2. Record the memory statistics, including heap and stack usage.
 
-#### After Optimization:
+After Optimization:
 1. Rerun the program with the optimizations in place.
 2. Monitor memory usage using the same memory profiling functions.
 
-#### Observation:
-- Compare memory statistics before and after optimization. A reduction in memory usage, especially in the heap, indicates successful memory optimization.
+**Observation:** Compare memory statistics before and after optimization. A reduction in memory usage, especially in the heap, indicates successful memory optimization.
 
 
 **Compiler Optimization Flags**
-1. Understand compiler optimization flags like `-O1`, `-O2`, and `-O3` and their impact on code optimization.
-2. Compile a program with different optimization levels and compare their performance.
-3. Discuss trade-offs between code size and execution speed with different optimization levels.
+In this section, we delve into the realm of compiler optimization flags, including `-O1`, `-O2`, and `-O3`, and their profound influence on code optimization. You will gain a comprehensive understanding of how these flags impact the performance of your program. To gain practical insights, you'll compile a program using varying optimization levels and rigorously compare their execution speed. Additionally, we'll engage in a thoughtful discussion exploring the trade-offs between code size and execution speed that accompany different optimization levels. This exploration will equip you with the knowledge to make informed decisions when selecting the most suitable optimization level for your embedded system, ensuring a balanced approach that meets your specific project requirements.
 
 Compiler Optimization Flags: Optimizing code during compilation can be as simple as specifying compiler flags. The level of optimization depends on the flag used:
 
-**No Optimization:**
+No Optimization:
 ```bash
 gcc -O0 my_program.c -o my_program
 ```
 
-**Moderate Optimization:**
+Moderate Optimization
 ```bash
 gcc -O1 my_program.c -o my_program
 ```
 
-**High Optimization:**
+High Optimization
 ```bash
 gcc -O2 my_program.c -o my_program
 ```
 
-**Maximum Optimization (Aggressive):**
-
+Maximum Optimization (Aggressive
 ```bash
 gcc -O3 my_program.c -o my_program
 ```
@@ -210,22 +195,19 @@ Using higher optimization levels can significantly improve code performance but 
 
 These code optimization techniques are fundamental for improving the efficiency and performance of embedded systems programs running on Raspberry Pi Pico or similar microcontrollers.
 
+**Compiler Optimization Flags:**
 
-Compiler Optimization Flags:
-
-#### Before Optimization:
+Before Optimization:
 1. Compile your code without any optimization flags using the `-O0` flag.
 2. Generate the executable binary.
 
-#### After Optimization:
+After Optimization:
 1. Recompile the code with different optimization flags (`-O1`, `-O2`, `-O3`) one at a time.
 2. Generate separate executable binaries for each optimization level.
 
-#### Observation:
-- Execute each binary and record the execution time and memory usage for each optimization level.
-- Compare the results to determine which optimization level yields the best performance while considering memory constraints.
+**Observation:** Execute each binary and record the execution time and memory usage for each optimization level. Compare the results to determine which optimization level yields the best performance while considering memory constraints.
 
-Visual Inspection:
+**Visual Inspection:**
 
 Before Optimization:
 1. Review your code for potential optimizations, such as loop unrolling, minimizing branches, and algorithm improvements.
@@ -235,49 +217,45 @@ After Optimization:
 1. Implement the identified optimizations and document the changes made in the code.
 2. Use comments or version control tools to track changes.
 
-Observation: Visual inspection helps you identify and understand the specific optimizations applied to your code.
+**Observation:** Visual inspection helps you identify and understand the specific optimizations applied to your code.
 
-Profiling and Benchmarking:
+**Profiling and Benchmarking:**
 
 Before and After Optimization:
 1. Utilize profiling tools and benchmarking frameworks specific to your platform and programming language.
 2. Profile your code to identify performance bottlenecks and resource usage before and after optimization.
 
-Observation:
-- Profiling tools provide detailed information about which parts of your code consume the most resources or have the highest execution time. Use this data to pinpoint areas that require optimization.
+**Observation:** Profiling tools provide detailed information about which parts of your code consume the most resources or have the highest execution time. Use this data to pinpoint areas that require optimization.
 
-Test Cases:
+**Test Cases:**
 
 Before and After Optimization:
 1. Develop and execute test cases that represent real-world usage scenarios for your application.
 2. Ensure that the test cases cover various input conditions and use cases.
 
-Observation: Observe how your program performs with the optimization changes when subjected to the test cases. Look for improvements in execution time, memory usage, and overall program stability.
+**Observation:** Observe how your program performs with the optimization changes when subjected to the test cases. Look for improvements in execution time, memory usage, and overall program stability.
 
 Debugging:
 
 After Optimization:
 1. Debug your code thoroughly after applying optimizations to identify and rectify any new issues or unintended consequences introduced by the optimizations.
 
-Observation: Debugging helps ensure that optimizations do not introduce new bugs or issues into your code.
+**Observation:** Debugging helps ensure that optimizations do not introduce new bugs or issues into your code.
 
 By following these verification and observation techniques, you can effectively assess the impact of optimization techniques on your embedded systems code running on the Raspberry Pi Pico or similar platforms.
 
 
-
 ## Debugging Tools and Techniques
 
-LED Debugging
+**LED Debugging**
 1. Use an LED connected to the Raspberry Pi Pico to provide visual feedback during program execution.
 2. Implement LED blinking patterns to indicate specific program states or errors.
 3. Debug your code by observing the LED's behavior.
 
-Serial Debugging with UART
+**Serial Debugging with UART**
 1. Set up UART communication between the Raspberry Pi Pico and your computer.
 2. Send debugging information, including variable values, status updates and execution progress, via UART (e.g via `printf`).
 3. Use a serial terminal or debugging tool on your computer to receive and analyze the UART output for debugging.
-
----
 
 Remember that optimization and debugging are ongoing processes, and the skills you've learned in this lab will be essential for developing reliable and efficient embedded systems in the future.
 
