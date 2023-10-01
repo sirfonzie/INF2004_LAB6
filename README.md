@@ -165,5 +165,9 @@ The following is the launch.json file (for those using Windows).
 The screenshot below illustrates how to start the debugging process.
 ![Screenshot of Pull-up Pressed](debugging.png)
 
+![Screenshot of Pull-up Pressed](debugging.png)
+
+![Screenshot of Pull-up Pressed](debugging.png)
+
 ## Additional Resources
 [Raspberry Pi Pico SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)
