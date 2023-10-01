@@ -83,6 +83,7 @@ int main() {
 ## Debugging Tools and Techniques
 
 **LED Debugging**
+
 Incorporate an LED into your Raspberry Pi Pico project to offer visual cues throughout program execution. By employing various LED blinking patterns, you can effectively communicate specific program states or highlight potential errors, enhancing the user interface and debugging process. Harness the LED's behavior as a debugging aid, allowing you to observe its responses to code execution and swiftly identify any issues that may arise. This integrated approach of using an LED not only enhances user interaction but also streamlines the debugging and troubleshooting aspects of your embedded system development.
 
 To incorporate the necessary libraries.
@@ -112,6 +113,7 @@ void blink_led(uint gpio_pin, uint32_t period_ms, int num_blinks) {
 ```
 
 **Serial Debugging with UART**
+
 This method has been used since lab 1. It establishes UART communication between your Raspberry Pi Pico and computer, enabling the exchange of debugging information such as variable values, status updates, and execution progress. This communication is achieved through methods like `printf`. Utilize a serial terminal or debugging tool on your computer to receive and assess the UART output, facilitating effective debugging of your Pico-based projects. Remember to include the following in the project's CMakeLists.txt file (BEFORE `pico_add_extra_outputs(picow_xxx)`):
 
 ``` c
