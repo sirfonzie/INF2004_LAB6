@@ -129,5 +129,41 @@ This method has been used since lab 1. It establishes UART communication between
 pico_enable_stdio_usb(picow_xxxx 1)
 ```
 
+**Debugging with PicoProbe or Debug Probe**
+
+The following image demonstrates how to connect the debugger, PicoProbe (below) connected to the target Pico (above).
+![Screenshot of Pull-up Pressed](picoprobe.png)
+
+The following is the launch.json file (for those using Windows).
+```
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Pico Debug (Cortex-Debug)",
+      "cwd": "${workspaceFolder}",
+      "executable": "${command:cmake.launchTargetPath}",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "gdbPath": "arm-none-eabi-gdb",
+      "device": "RP2040",
+      "configFiles": [
+        "interface/cmsis-dap.cfg",
+        "target/rp2040.cfg"
+      ],
+      "svdFile": "${env:PICO_SDK_PATH}/src/rp2040/hardware_regs/rp2040.svd",
+      "runToEntryPoint": "main",
+      "openOCDLaunchCommands": [
+        "adapter speed 5000"
+      ]
+    }
+]
+}
+```
+
+The screenshot below illustrates how to start the debugging process.
+![Screenshot of Pull-up Pressed](debugging.png)
+
 ## Additional Resources
 [Raspberry Pi Pico SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)
