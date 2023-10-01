@@ -131,7 +131,7 @@ pico_enable_stdio_usb(picow_xxxx 1)
 
 **Debugging with PicoProbe or Debug Probe**
 
-The following image demonstrates how to connect the debugger, PicoProbe (below) connected to the target Pico (above).
+The following image demonstrates how to connect the debugger, PicoProbe (left) connected to the target Pico (right).
 ![Screenshot of Pull-up Pressed](picoprobe.jpg)
 
 The following is the launch.json file (for those using Windows).
