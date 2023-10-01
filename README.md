@@ -113,6 +113,59 @@ After Optimization:
 
 **Observation:** Compare the execution times before and after optimization. If the execution time has significantly reduced, it indicates the effectiveness of your optimizations.
 
+The following is a simple code example in C for measuring and comparing execution times before and after optimization using the `pico_time.h` library on the Raspberry Pi Pico. In this example, we have a simple `timeConsumingTask()` function simulating a computationally intensive task that we would like to measure the execution time before and after optimization and then compare the results to determine the effectiveness of the optimizations. You can apply your specific optimizations within the code and observe their impact on execution time.
+
+
+```c
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "pico/time.h"
+
+// Function to perform a time-consuming task
+void timeConsumingTask() {
+    for (int i = 0; i < 1000000; i++) {
+        // Simulate some computation
+        int result = i * 2;
+    }
+}
+
+int main() {
+    // Initialize the Raspberry Pi Pico SDK
+    stdio_init_all();
+
+    // Measure execution time before optimization
+    absolute_time_t start_time = get_absolute_time();
+    timeConsumingTask();
+    absolute_time_t end_time = get_absolute_time();
+
+    uint32_t execution_time_before = absolute_time_diff_us(start_time, end_time);
+
+    // Output execution time before optimization
+    printf("Execution Time Before Optimization: %d microseconds\n", execution_time_before);
+
+    // Apply optimizations (you can add your optimizations here)
+
+    // Measure execution time after optimization
+    start_time = get_absolute_time();
+    timeConsumingTask();
+    end_time = get_absolute_time();
+
+    uint32_t execution_time_after = absolute_time_diff_us(start_time, end_time);
+
+    // Output execution time after optimization
+    printf("Execution Time After Optimization: %d microseconds\n", execution_time_after);
+
+    // Compare execution times
+    if (execution_time_after < execution_time_before) {
+        printf("Optimizations were effective in reducing execution time.\n");
+    } else {
+        printf("Optimizations did not significantly improve execution time.\n");
+    }
+
+    return 0;
+}
+```
+
 
 ## **Memory Optimization Techniques**
 This section delves into fundamental techniques that involve minimizing variable sizes and using efficient data structures to save memory resources in embedded systems. You will gain practical experience by adapting an existing program to reduce its memory footprint while retaining its core functionality. To quantify the effectiveness of these optimizations, you will employ tools such as `pico_malloc_stats` or equivalent functions to closely monitor and assess the success of your memory optimization efforts.
