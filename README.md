@@ -117,7 +117,7 @@ void blink_led(uint gpio_pin, uint32_t period_ms, int num_blinks) {
 This method has been used since lab 1. It establishes UART communication between your Raspberry Pi Pico and computer, enabling the exchange of debugging information such as variable values, status updates, and execution progress. This communication is achieved through methods like `printf`. Utilize a serial terminal or debugging tool on your computer to receive and assess the UART output, facilitating effective debugging of your Pico-based projects. Remember to include the following in the project's CMakeLists.txt file (BEFORE `pico_add_extra_outputs(picow_xxx)`):
 
 ``` c
-pico_enable_stdio_usb(picow_**xxxx** 1)
+pico_enable_stdio_usb(picow_xxxx 1)
 ```
 
 ## Additional Resources
