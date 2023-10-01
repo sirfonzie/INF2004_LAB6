@@ -86,7 +86,7 @@ Power optimization through clock speed reduction is common in embedded systems, 
 The sample code [hello_48MHz](https://github.com/raspberrypi/pico-examples/blob/master/clocks/hello_48MHz/hello_48MHz.c) demonstrates how the main clock speed of the Raspberry Pi Pico can be reduced from 125Mhz to 48Mhz. However, reducing the clock speed will slow down the microcontroller and thus take longer for code to run. All other clocks that are derived from the main clock will be immediately affected by this, e.g. PWM, Timer, etc.
 
 > [NOTE]
-> Remember to include `pico_enable_stdio_usb(picow_xxxx 1)`
+> Remember to include `pico_enable_stdio_usb(hello_48MHz 1)`
 
 
 ## Debugging Tools and Techniques
