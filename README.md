@@ -132,6 +132,7 @@ pico_enable_stdio_usb(picow_xxxx 1)
 **Debugging with PicoProbe or Debug Probe**
 
 The following image demonstrates how to connect the debugger, PicoProbe (left) connected to the target Pico (right).
+You may flash the binary image (picoprobe.uf2) found [here](https://github.com/raspberrypi/picoprobe/releases) onto the picoprobe (the pico you choose to become your debugger).
 ![Screenshot of Pull-up Pressed](picoprobe.jpg)
 
 The following is the launch.json file (for those using Windows).
