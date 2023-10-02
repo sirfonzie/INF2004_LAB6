@@ -169,5 +169,60 @@ The screenshot below illustrates how to start the debugging process.
 
 ![Screenshot of Pull-up Pressed](ss.png)
 
+
+## **EXERCISE**
+
+Here's a pseudo-code representation of the given C code for a PID controller. Find the logical and syntax errors in the following [code]().
+```c
+// Initialize PID controller parameters
+Kp = 1.0
+Ki = 0.1
+Kd = 0.01
+
+// Initialize variables
+setpoint = 100.0
+current_value = 0.0
+integral = 0.0
+prev_error = 0.0
+
+// Initialize simulation parameters
+time_step = 0.1
+num_iterations = 100
+
+// Main control loop
+for i = 0 to num_iterations - 1:
+    // Compute error
+    error = setpoint - current_value
+
+    // Update integral term
+    integral += error
+
+    // Compute derivative term
+    derivative = error - prev_error
+
+    // Compute control signal
+    control_signal = Kp * error + Ki * integral + Kd * derivative
+
+    // Update previous error
+    prev_error = error
+
+    // Simulate motor dynamics (for demonstration purposes)
+    motor_response = control_signal * 0.1
+
+    // Update current position
+    current_value += motor_response
+
+    // Display results
+    Print "Iteration ", i, ": Control Signal = ", control_signal, ", Current Position = ", current_value
+
+    // Sleep for the time step (for demonstration purposes)
+    Sleep for time_step seconds
+
+// End of main control loop
+```
+
+This pseudo code provides a high-level description of the PID control algorithm and the simulation loop. It outlines the key steps and calculations performed in the code without getting into specific programming language syntax.
+```
+
 ## Additional Resources
 [Raspberry Pi Pico SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)
