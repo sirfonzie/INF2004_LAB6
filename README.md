@@ -173,7 +173,7 @@ The screenshot below illustrates how to start the debugging process.
 
 ## **EXERCISE**
 
-Here's a pseudo-code representation of the given C code for a PID controller. Find and correct all the five logical and five syntax errors in the following [code](https://github.com/sirfonzie/INF2004_LAB6/blob/main/pid.c).
+Here's a pseudo-code representation of the given C code for a PID controller. Find and correct all the logical and syntax errors in the following [code](https://github.com/sirfonzie/INF2004_LAB6/blob/main/pid.c). There are **at least** 5 logical and 5 syntax errors.
 This pseudo-code provides a high-level description of the PID control algorithm and the simulation loop. It outlines the key steps and calculations the code performs without getting into specific programming language syntax.
 
 ```c
