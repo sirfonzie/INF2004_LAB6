@@ -11,7 +11,7 @@
 3.	Micro-USB Cable
 
 > [NOTE]
-> Only students wearing fully covered shoes are allowed in the SR6A lab due to safety.
+> Only students wearing fully covered shoes are allowed in the lab due to safety.
 
 ## **INTRODUCTION** 
 
