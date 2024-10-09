@@ -179,13 +179,6 @@ In the Run & Debug tool, click the Pico Debug button (the one with the green tri
 ![Screenshot of Pull-up Pressed](debugging.png)
 
 
-
-
-
-#![Screenshot of Pull-up Pressed](ss.png)
-
-
-
 ## **EXERCISE**
 
 Here's a pseudo-code representation of the given C code for a PID controller. Find and correct all the logical and syntax errors in the following [code](https://github.com/sirfonzie/INF2004_LAB6/blob/main/pid.c). There are **at least** 5 logical and 5 syntax errors.
