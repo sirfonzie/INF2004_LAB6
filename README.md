@@ -163,12 +163,27 @@ The following is the launch.json file (for those using Windows).
 }
 ```
 
-The screenshot below illustrates how to start the debugging process.
-![Screenshot of Pull-up Pressed](debugging.png)
+In the CMake tool, perform the following actions on the project you want to build:
+
+- Right-click the project and select "Set as Build Target". This ensures that the project is compiled when you build.
+- Right-click the project again and select "Set as Launch/Debug Target". This designates the project as the one to be launched or debugged when you start a debugging session.
+
+![Screenshot of Pull-up Pressed](settarget.PNG)
+
+If done correctly, you should see the 'rocket' and 'hammer' icon beside your project name as shown below.
 
 ![Screenshot of Pull-up Pressed](selectdebug.png)
 
-![Screenshot of Pull-up Pressed](ss.png)
+In the Run & Debug tool, click the Pico Debug button (the one with the green triangle). VSCode will compile and download the executable directly into your target pico via the debugger-pico. You do not need to download the executable (aka .uf2) into the target pico.
+
+![Screenshot of Pull-up Pressed](debugging.png)
+
+
+
+
+
+#![Screenshot of Pull-up Pressed](ss.png)
+
 
 
 ## **EXERCISE**
