@@ -39,10 +39,9 @@ int main() {
         
         printf("Iteration %d: Control Signal = %d, Current Position = %f\n", i, control_signal, current_value);
         
-        prev_error = current_value;
+        prev_error == current_value;
         
         usleep((useconds_t)(time_step));
-    }
     
     return 0;
 }
